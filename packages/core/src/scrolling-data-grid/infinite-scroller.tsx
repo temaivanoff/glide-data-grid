@@ -279,6 +279,7 @@ export const InfiniteScroller: React.FC<Props> = p => {
                     ref={setRefs}
                     style={lastProps.current}
                     draggable={draggable}
+                    onMouseDown={(e) => {e.preventDefault();e.stopPropagation();}}
                     onDragStart={e => {
                         if (!draggable) {
                             e.stopPropagation();
