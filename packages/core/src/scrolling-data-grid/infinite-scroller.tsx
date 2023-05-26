@@ -25,6 +25,7 @@ interface Props {
     readonly scrollRef?: React.MutableRefObject<HTMLDivElement | null>;
     readonly update: (region: Rectangle & { paddingRight: number }) => void;
 }
+declare const window: any;
 
 const ScrollRegionStyle = styled.div<{ isSafari: boolean }>`
     .dvn-scroller {
@@ -279,6 +280,12 @@ export const InfiniteScroller: React.FC<Props> = p => {
                     ref={setRefs}
                     style={lastProps.current}
                     draggable={draggable}
+                    onMouseDown={() => {
+                      window.__disableDialogMove = true;
+                    }}
+                    onMouseUp={() => {
+                      window.__disableDialogMove = false;
+                    }}
                     onDragStart={e => {
                         if (!draggable) {
                             e.stopPropagation();
