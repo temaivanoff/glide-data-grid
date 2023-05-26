@@ -894,6 +894,9 @@ const DataGrid: React.ForwardRefRenderFunction<DataGridRef, DataGridProps> = (p,
     const downPosition = React.useRef<Item>();
     const onMouseDownImpl = React.useCallback(
         (ev: MouseEvent | TouchEvent) => {
+            ev.preventDefault();
+            ev.stopPropagation();
+            
             const canvas = ref.current;
             const eventTarget = eventTargetRef?.current;
             if (canvas === null || (ev.target !== canvas && ev.target !== eventTarget)) return;
