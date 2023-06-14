@@ -323,8 +323,20 @@ const getContent = React.useCallback((cell: Item): GridCell => {
                 {`
 \`allowOverlay\` has been set to true. This allows the overlay to come up. For explanatory purposes the \`readonly\` field is being set to false. This is the default value, setting it to true would allow the overlay to come up but not allow editing.`}
             </Marked>
-            <Wrapper height={200}>
-                <DataEditor getCellContent={getFixedContent} columns={columns} rows={dataRef.current.length} />
+            <Wrapper  height={200}>
+                <div style={{ width: 450 }}>
+                <DataEditor
+                    rowMarkers="clickable-number"
+                    getCellsForSelection
+                    freezeColumns={1} 
+                    getCellContent={getFixedContent} 
+                    columns={columns} 
+                    rows={dataRef.current.length} 
+                    smoothScrollX={true}
+                    smoothScrollY={true} 
+                />
+                </div>
+      
             </Wrapper>
             <Marked>
                 {`
@@ -352,6 +364,8 @@ const onCellEdited = React.useCallback((cell: Item, newValue: EditableGridCell) 
                     onCellEdited={onCellEdited}
                     columns={columns}
                     rows={dataRef.current.length}
+                    smoothScrollX={true}
+                    smoothScrollY={true}
                 />
             </Wrapper>
         </DocWrapper>
