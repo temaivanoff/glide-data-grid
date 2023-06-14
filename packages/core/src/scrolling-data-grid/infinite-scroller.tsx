@@ -281,10 +281,12 @@ export const InfiniteScroller: React.FC<Props> = p => {
                     style={lastProps.current}
                     draggable={draggable}
                     onMouseDown={() => {
-                      window.__disableDialogMove = true;
+                      window.__disableDialogMove = 1;
                     }}
                     onMouseUp={() => {
-                      window.__disableDialogMove = false;
+                      if (window.__disableDialogMove <= 1) {
+                        window.__disableDialogMove = 0;
+                      }
                     }}
                     onDragStart={e => {
                         if (!draggable) {

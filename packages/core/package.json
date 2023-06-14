@@ -1,6 +1,6 @@
 {
     "name": "ih-glide-data-grid",
-    "version": "5.2.10",
+    "version": "5.2.12",
     "description": "React data grid for beautifully displaying and editing large amounts of data with amazing performance.",
     "sideEffects": [
         "**/*.css"
