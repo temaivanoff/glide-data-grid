@@ -333,7 +333,7 @@ const getContent = React.useCallback((cell: Item): GridCell => {
                     columns={columns} 
                     rows={dataRef.current.length} 
                     smoothScrollX={true}
-                    smoothScrollY={true} 
+                    smoothScrollY={true}
                 />
                 </div>
       

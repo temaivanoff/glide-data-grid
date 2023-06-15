@@ -74,7 +74,7 @@ const DataGridOverlayEditor: React.FunctionComponent<DataGridOverlayEditorProps>
 
     const onFinishEditing = React.useCallback<typeof onFinishEditingIn>(
         (newCell, movement) => {
-            onFinishEditingIn(isValid ? newCell : undefined, movement);
+            onFinishEditingIn(isValid ? newCell : undefined, [0, 0] || movement);
         },
         [isValid, onFinishEditingIn]
     );
