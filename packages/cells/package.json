@@ -1,6 +1,6 @@
 {
     "name": "ih-glide-data-grid-cells",
-    "version": "5.2.2-beta19",
+    "version": "5.2.2-beta20",
     "description": "Extra cells for glide-data-grid",
     "sideEffects": [
         "**/*.css"
