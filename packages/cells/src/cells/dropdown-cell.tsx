@@ -143,10 +143,23 @@ const renderer: CustomRenderer<DropdownCell> = {
     draw: (args, cell) => {
         const { ctx, theme, rect } = args;
         const { value } = cell.data;
+
+        let x = rect.x + theme.cellHorizontalPadding
+
+        if (cell.contentAlign === 'center') {
+        x = rect.x + rect.width / 2
+        ctx.textAlign = 'center'
+        }
+
+        if (cell.contentAlign === 'right') {
+        x = rect.x + rect.width - theme.cellHorizontalPadding
+        ctx.textAlign = 'right'
+        }
+
         ctx.fillStyle = theme.textDark;
         ctx.fillText(
             value,
-            rect.x + theme.cellHorizontalPadding,
+            x,
             rect.y + rect.height / 2 + getMiddleCenterBias(ctx, theme)
         );
 
