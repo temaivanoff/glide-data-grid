@@ -755,6 +755,17 @@ export function drawHeader(
     } else {
         ctx.fillStyle = fillStyle;
     }
+
+    if (c.contentAlign === 'center') {
+      drawX = x + width / 2
+      ctx.textAlign = 'center'
+    }
+
+    if (c.contentAlign === 'right') {
+      drawX = x + width - xPad
+      ctx.textAlign = 'right'
+    }
+    
     ctx.fillText(
         c.title,
         drawX,
@@ -812,8 +823,8 @@ function drawGridHeaders(
 ) {
     const totalHeaderHeight = headerHeight + groupHeaderHeight;
     if (totalHeaderHeight <= 0) return;
-  
-    ctx.fillStyle = effectiveCols[0] ? effectiveCols[0].themeOverride.bgHeader : outerTheme.bgHeader;
+   
+    ctx.fillStyle = (effectiveCols[0] && effectiveCols[0].themeOverride) ? effectiveCols[0].themeOverride.bgHeader : outerTheme.bgHeader;
     ctx.fillRect(0, 0, width, totalHeaderHeight);
 
     const [hCol, hRow] = hovered?.[0] ?? [];

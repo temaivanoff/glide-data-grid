@@ -156,9 +156,10 @@ export const ColumnGrouping: React.VFC = () => {
                 group: "Core",
             },
             {
-                title: "Email",
+                title: "Email 1",
                 id: "email",
                 group: "Extra",
+                align: 'right',
             },
             {
                 title: "Phone",
@@ -210,4 +211,4 @@ const columns = React.useMemo<GridColumn[]>(() => {
         </DocWrapper>
     );
 };
-(ColumnGrouping as any).storyName = "07. Column Grouping";
+(ColumnGrouping as any).storyName = "077. Column Grouping";

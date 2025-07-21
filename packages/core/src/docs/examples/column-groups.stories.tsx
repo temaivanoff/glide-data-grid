@@ -33,7 +33,7 @@ export default {
 
 export const ColumnGroups: React.VFC = () => {
     const { cols, getCellContent } = useMockDataGenerator(20, true, true);
-
+    cols[3].contentAlign = 'right'
     return (
         <DataEditor
             {...defaultProps}
