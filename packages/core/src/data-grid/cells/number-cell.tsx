@@ -4,9 +4,8 @@ import { drawTextCell, prepTextCell } from "../data-grid-lib";
 import { GridCellKind, NumberCell } from "../data-grid-types";
 import type { InternalCellRenderer } from "./cell-types";
 
-const NumberOverlayEditor = React.lazy(
-    async () => await import("../../data-grid-overlay-editor/private/number-overlay-editor")
-);
+import NumberOverlayEditor from "../../data-grid-overlay-editor/private/number-overlay-editor"
+
 
 export const numberCellRenderer: InternalCellRenderer<NumberCell> = {
     getAccessibilityString: c => c.data?.toString() ?? "",
